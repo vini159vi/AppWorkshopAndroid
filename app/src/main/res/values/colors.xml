@@ -3,4 +3,41 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="colorCyan">#4DD0E1</color>
+    <color name="colorRed">#E53935</color>
+    <color name="colorIndigo">#5C6BC0</color>
+    <color name="colorCyan2">#64FFDA</color>
+    <color name="colorOrange">#FF8A65</color>
+    <color name="colorPink">#F06292</color>
+    <color name="colorSmoke">#F5F5F5</color>
+
+    <string-array name="card_colorsTitle">
+        <item name="colorCyan">#4DD0E1</item>
+        <item name="colorRed">#E53935</item>
+        <item name="colorIndigo">#5C6BC0</item>
+        <item name="colorCyan2">#64FFDA</item>
+        <item name="colorOrange">#FF8A65</item>
+        <item name="colorPink">#F06292</item>
+    </string-array>
+
+    <string-array name="card_colorsDescription">
+        <item name="colorCyan">#4DD0E1</item>
+        <item name="colorRed">#E53935</item>
+        <item name="colorIndigo">#5C6BC0</item>
+        <item name="colorCyan2">#64FFDA</item>
+        <item name="colorOrange">#FF8A65</item>
+        <item name="colorPink">#F06292</item>
+    </string-array>
+
+    <string-array name="card_colorsBackground">
+        <item name="colorCyan">#FCE4EC</item>
+        <item name="colorRed">#E8EAF6</item>
+        <item name="colorIndigo">#E0F7FA</item>
+        <item name="colorCyan2">#E8F5E9</item>
+        <item name="colorOrange">#FAFAFA</item>
+        <item name="colorPink">#FFF3E0</item>
+
+    </string-array>
+
 </resources>
