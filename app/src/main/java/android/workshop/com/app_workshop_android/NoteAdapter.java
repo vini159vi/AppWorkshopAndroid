@@ -1,6 +1,8 @@
 package android.workshop.com.app_workshop_android;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,25 +37,30 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>{
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Note note = notes.get(position);
+        final Note note = notes.get(position);
 
         holder.textViewTitle.setText(note.getTitle());
         holder.textViewDescription.setText(note.getDescription());
-        String[] arrayBackground = holder.linear.getContext().getResources().getStringArray(R.array.card_colorsBackground);
+        holder.linear.setCardBackgroundColor(note.getColor());
 
-        String[] arrayDescription = holder.textViewDescription.getContext().getResources().getStringArray(R.array.card_colorsDescription);
 
-        String[] arrayTitle = holder.textViewTitle.getContext().getResources().getStringArray(R.array.card_colorsTitle);
+        holder.linear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, NoteActivity.class);
+                intent.putExtra("noteExtra", note);
+                context.startActivity(intent);
+            }
+        });
 
-        Random random = new Random();
-
-        String color = arrayBackground[random.nextInt(5)];
-        String color2 = arrayDescription[random.nextInt(5)];
-        String color3 = arrayTitle[random.nextInt(5)];
-
-        holder.linear.setBackgroundColor(Color.parseColor(color));
-        holder.textViewDescription.setTextColor(Color.parseColor(color2));
-        holder.textViewTitle.setTextColor(Color.parseColor(color3));
+        holder.linear.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                notes.remove(note);
+                notifyDataSetChanged();
+                return false;
+            }
+        });
     }
 
     @Override
@@ -65,7 +72,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.MyViewHolder>{
 
         TextView textViewDescription;
         TextView textViewTitle;
-        LinearLayout linear;
+        CardView linear;
 
         public MyViewHolder(View itemView) {
             super(itemView);

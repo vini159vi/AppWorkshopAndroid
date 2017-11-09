@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
@@ -25,15 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         noteAdapter = new NoteAdapter(NoteActivity.noteList, this);
-        linearLayoutManager = new LinearLayoutManager(this);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
 
-        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         recyclerView.setAdapter(noteAdapter);
 
 
-        Button button= findViewById(R.id.bttAbrir);
+        FloatingActionButton button= findViewById(R.id.bttAbrir);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override
